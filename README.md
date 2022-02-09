@@ -6,18 +6,25 @@ Study of Energy Simulation Kernel (with and without approximations)
  * Alejandro Calderón Mateos - acaldero AT inf.uc3m.es
 
 
-## Basic pre-requisites
-```console
-apt-get -y install build-essential
-apt-get -y install gnuplot gnuplot-data gnuplot-doc
-pip3 install matplotlib
+## Get started
+
+1) First you need to install the pre-requisites:
+```bash
+  apt-get -y install build-essential
+  apt-get -y install gnuplot gnuplot-data gnuplot-doc inkscape
 ```
 
-## Run
-```console
-mkdir -p results
-./clean.sh
-./compile.sh
-./execute.sh
-./plot.sh
+2) Then, clone the proyect:
+```bash
+  git clone https://github.com/acaldero/energy-kernel2
+```
+
+3) Finally, run the benchmarks:
+```bash
+  mkdir -p results
+  ./clean.sh
+  ./compile.sh
+  ./execute.sh
+  ./plot.sh
+  ls *.pdf
 ```
