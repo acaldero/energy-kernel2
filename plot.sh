@@ -47,7 +47,8 @@ set terminal svg size 1280,600
 set xtics scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set yrange [ 0.1 : 70 ]
+#set yrange [ 0.1 : 80 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -74,7 +75,8 @@ set terminal svg size 1280,600
 set xtics rotate by 36 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set yrange [ 0.1 : 25 ]
+#set yrange [ 0.1 : 45 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -102,7 +104,8 @@ set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
 #set logscale y
-set yrange [ 0.1 : 25 ]
+#set yrange [ 0.1 : 45 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -130,7 +133,8 @@ set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
 #set logscale y
-set yrange [ 1 : 25 ]
+#set yrange [ 1 : 45 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -158,7 +162,8 @@ set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
 #set logscale y
-set yrange [ 1 : 20 ]
+#set yrange [ 1 : 40 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -172,33 +177,34 @@ mv data.csv data-findony-woapprox2.csv
 INKFILES+="data-findony-woapprox2 "
 
 
-###
-### Plot 56: WITHOUT without-Approx 1, 2, 4...
-###
-#cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv 
-#cat raw.csv | grep CPU                                                                         | awk -F';' '{print $3";"$4}'  > data.csv
-#cat raw.csv | grep O2 | grep  "WITHOUT-APPROX" | sed 's/-WITHOUT-APPROX//g' | sed 's/FIND-//g' | awk -F';' '{print $3";"$4}' >> data.csv
-#$GNUPLOT<<EOF>data-findony-woapprox3.svg
-#set terminal svg size 1536,650
-##set title 'Time (nanosec.)'
-###set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
-#set xtics rotate by 90 right scale 0 font ",18"
-#set ylabel 'Time (nanosec.)' font ",20"
-#set ytics font ",18"
-#set logscale y
-#set yrange [ 1 : 350 ]
-#set style fill solid 1 noborder
-#set style data histogram
-#set style histogram clustered gap 1
-#set grid ytics
-##set key outside font ",18"
-#set key off
-#set datafile separator ';'
-#plot for [COL=1:*] 'data.csv' using COL:xticlabels(1) title columnheader
-#EOF
-#rm -fr raw.csv
-#mv data.csv data-findony-woapprox3.csv
-#INKFILES+="data-findony-woapprox3 "
+##
+## Plot 56: WITHOUT without-Approx 1, 2, 4...
+##
+cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv 
+cat raw.csv | grep CPU                                                                         | awk -F';' '{print $3";"$4}'  > data.csv
+cat raw.csv | grep O2 | grep  "WITHOUT-APPROX" | sed 's/-WITHOUT-APPROX//g' | sed 's/FIND-//g' | awk -F';' '{print $3";"$4}' >> data.csv
+$GNUPLOT<<EOF>data-findony-woapprox3.svg
+set terminal svg size 1536,650
+#set title 'Time (nanosec.)'
+##set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
+set xtics rotate by 90 right scale 0 font ",18"
+set ylabel 'Time (nanosec.)' font ",20"
+set ytics font ",18"
+set logscale y
+#set yrange [ 1 : 550 ]
+set autoscale y
+set style fill solid 1 noborder
+set style data histogram
+set style histogram clustered gap 1
+set grid ytics
+#set key outside font ",18"
+set key off
+set datafile separator ';'
+plot for [COL=1:*] 'data.csv' using COL:xticlabels(1) title columnheader
+EOF
+rm -fr raw.csv
+mv data.csv data-findony-woapprox3.csv
+INKFILES+="data-findony-woapprox3 "
 
 
 ##
@@ -208,14 +214,14 @@ cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv
 cat raw.csv | grep CPU                                                           | awk -F';' '{print $3";"$4}'  > data.csv
 cat raw.csv | grep O2   | sed 's/FIND-//g' | grep -v '1-ON-2'                    | awk -F';' '{print $3";"$4}' >> data.csv
 $GNUPLOT<<EOF>data-findony-approx3.svg
-set terminal svg size 1550,750
+set terminal svg size 1536,650
 #set title 'Time (nanosec.)'
 ##set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
 set xtics rotate by 90 right scale 0 font ",16"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-#set logscale y
-set yrange [ 1 : 25 ]
+set logscale y
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -244,8 +250,9 @@ set xtics scale 0 font ",20"
 set ylabel 'Error (percentaje) from without-approximation' font ",20"
 set ytics font ",20"
 #set logscale y
-#set yrange [ 1 : 120 ]
-set yrange [ -20 : 10 ]
+#set yrange [ 1 : 220 ]
+#set yrange [ -20 : 10 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -275,6 +282,7 @@ set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
 set logscale y
 set yrange [ 1 : 19000 ]
+set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
