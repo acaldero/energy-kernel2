@@ -47,7 +47,7 @@ set terminal svg size 1280,600
 set xtics scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set yrange [ 0.1 : 1900 ]
+set yrange [ 0.1 : 70 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -74,7 +74,7 @@ set terminal svg size 1280,600
 set xtics rotate by 36 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set yrange [ 0.1 : 900 ]
+set yrange [ 0.1 : 25 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -101,8 +101,8 @@ set terminal svg size 1280,600
 set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set logscale y
-set yrange [ 0.1 : 5000 ]
+#set logscale y
+set yrange [ 0.1 : 25 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -129,8 +129,8 @@ set terminal svg size 1536,650
 set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set logscale y
-set yrange [ 1 : 3000 ]
+#set logscale y
+set yrange [ 1 : 25 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -157,8 +157,8 @@ set terminal svg size 1536,650
 set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set logscale y
-set yrange [ 1 : 3000 ]
+#set logscale y
+set yrange [ 1 : 20 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -208,14 +208,14 @@ cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv
 cat raw.csv | grep CPU                                                           | awk -F';' '{print $3";"$4}'  > data.csv
 cat raw.csv | grep O2   | sed 's/FIND-//g' | grep -v '1-ON-2'                    | awk -F';' '{print $3";"$4}' >> data.csv
 $GNUPLOT<<EOF>data-findony-approx3.svg
-set terminal svg size 1536,650
+set terminal svg size 1550,750
 #set title 'Time (nanosec.)'
 ##set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
-set xtics rotate by 90 right scale 0 font ",18"
+set xtics rotate by 90 right scale 0 font ",16"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set logscale y
-set yrange [ 1 : 1300 ]
+#set logscale y
+set yrange [ 1 : 25 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
