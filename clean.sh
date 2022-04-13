@@ -1,8 +1,8 @@
 #!/bin/sh
 set -x
 
-rm *.o
-rm *.svg
+rm -fr *.o
+rm -fr *.svg
 
-rm benchmarks/test-*
+rm -fr benchmarks/test-*
 

@@ -68,10 +68,13 @@ int main ( int argc, char *argv[] )
         printf(" ---------------------------------------\n") ;
         printf("\n") ;
         printf(" Usage: %s <number of input elements>\n", argv[0]) ;
-        printf("   <number of input elements> = 1 | 2 | 3 | ... 1024\n") ;
-        printf("       number of elements to compute its global consumption.\n") ;
+        printf("   where <number of input elements>\n") ;
+        printf("         can be: 1 | 2 | 3 | ... 1024\n") ;
+        printf("         means:  number of elements to compute its global consumption.\n") ;
         printf("\n") ;
-        printf(" sizeof(MemoNode) = %ld\n", sizeof(struct MemoNode)) ;
+        printf(" Info:\n") ;
+        printf("   sizeof(MemoNode) = %ld\n", sizeof(struct MemoNode)) ;
+        printf("   sizeof(long)     = %ld\n", sizeof(long)) ;
         printf("\n") ;
 
         exit(-1) ;

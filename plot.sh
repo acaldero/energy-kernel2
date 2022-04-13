@@ -172,13 +172,42 @@ mv data.csv data-findony-woapprox2.csv
 INKFILES+="data-findony-woapprox2 "
 
 
+###
+### Plot 56: WITHOUT without-Approx 1, 2, 4...
+###
+#cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv 
+#cat raw.csv | grep CPU                                                                         | awk -F';' '{print $3";"$4}'  > data.csv
+#cat raw.csv | grep O2 | grep  "WITHOUT-APPROX" | sed 's/-WITHOUT-APPROX//g' | sed 's/FIND-//g' | awk -F';' '{print $3";"$4}' >> data.csv
+#$GNUPLOT<<EOF>data-findony-woapprox3.svg
+#set terminal svg size 1536,650
+##set title 'Time (nanosec.)'
+###set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
+#set xtics rotate by 90 right scale 0 font ",18"
+#set ylabel 'Time (nanosec.)' font ",20"
+#set ytics font ",18"
+#set logscale y
+#set yrange [ 1 : 350 ]
+#set style fill solid 1 noborder
+#set style data histogram
+#set style histogram clustered gap 1
+#set grid ytics
+##set key outside font ",18"
+#set key off
+#set datafile separator ';'
+#plot for [COL=1:*] 'data.csv' using COL:xticlabels(1) title columnheader
+#EOF
+#rm -fr raw.csv
+#mv data.csv data-findony-woapprox3.csv
+#INKFILES+="data-findony-woapprox3 "
+
+
 ##
-## Plot 56: WITHOUT without-Approx 1, 2, 4...
+## Plot 57: 1 function Without/with-x, ...
 ##
 cat results/results-times-i5.txt | sed "s/_/-/g" | sed "s/;$//g" > raw.csv 
-cat raw.csv | grep CPU                                                                         | awk -F';' '{print $3";"$4}'  > data.csv
-cat raw.csv | grep O2 | grep  "WITHOUT-APPROX" | sed 's/-WITHOUT-APPROX//g' | sed 's/FIND-//g' | awk -F';' '{print $3";"$4}' >> data.csv
-$GNUPLOT<<EOF>data-findony-woapprox3.svg
+cat raw.csv | grep CPU                                                           | awk -F';' '{print $3";"$4}'  > data.csv
+cat raw.csv | grep O2   | sed 's/FIND-//g' | grep -v '1-ON-2'                    | awk -F';' '{print $3";"$4}' >> data.csv
+$GNUPLOT<<EOF>data-findony-approx3.svg
 set terminal svg size 1536,650
 #set title 'Time (nanosec.)'
 ##set xlabel '"Find one element in a hashtable of H elements filled without-approximation"' font ",20"
@@ -186,7 +215,7 @@ set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
 set logscale y
-set yrange [ 1 : 350 ]
+set yrange [ 1 : 1300 ]
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
@@ -197,8 +226,8 @@ set datafile separator ';'
 plot for [COL=1:*] 'data.csv' using COL:xticlabels(1) title columnheader
 EOF
 rm -fr raw.csv
-mv data.csv data-findony-woapprox3.csv
-INKFILES+="data-findony-woapprox3 "
+mv data.csv data-findony-approx3.csv
+INKFILES+="data-findony-approx3 "
 
 
 ##

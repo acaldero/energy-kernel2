@@ -19,6 +19,7 @@ R_VALUES_TXT="./results/results-values-i5.txt"
 #
 echo "test-vector"
 
+mkdir -p ./results
 rm -fr ${R_TIMES_TEX}  ; touch ${R_TIMES_TEX}
 rm -fr ${R_VALUES_TEX} ; touch ${R_VALUES_TEX}
 rm -fr ${R_TIMES_TXT}  ; touch ${R_TIMES_TXT}

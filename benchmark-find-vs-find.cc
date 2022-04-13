@@ -115,7 +115,7 @@ int setup_find1_vs_findn ( int n_eltos )
 
          memopool.add(0, i, (float *)inputs.get(), (float)ret) ;
 
-         // (b) pre-compute(x-filler, i-eltos) and memo( add more pre-computed results (over-fill)
+         // (b) pre-compute(x-filler, i-eltos), and memo, add more pre-computed results (over-fill)
          for (int j=1; j<=n_algos/cfg_n_filler; j++)
          {
               int additional_elements = (int)pow(2, j) ;
