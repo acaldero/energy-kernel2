@@ -22,9 +22,9 @@ Study of Energy Simulation Kernel (with and without approximations)
 3) Finally, run the benchmarks:
 ```bash
   mkdir -p results
-  ./clean.sh
-  ./compile.sh
-  ./execute.sh
-  ./plot.sh
+  ./do_clean.sh
+  ./do_compile.sh
+  ./do_execute.sh
+  ./do_plot.sh
   ls *.pdf
 ```

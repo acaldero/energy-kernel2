@@ -6,7 +6,7 @@ set -x
 OPTS="-O0 -O1 -O2 -O3 -Ofast -g"
 #NELTOS=17
 #NTESTS=1000
-NELTOS=11
+NELTOS=5
 NTESTS=200
 
 R_TIMES_TEX="./results/results-times-i5.tex"
@@ -43,7 +43,7 @@ rm -fr results-values.*
 #
 #
 OPT="-O2"
-NELTOS=11
+NELTOS=5
 NTESTS=200
 
 R_VALUES_TXT="./results/results-errors-i5.txt"

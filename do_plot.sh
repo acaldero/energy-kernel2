@@ -190,9 +190,9 @@ set terminal svg size 1536,650
 set xtics rotate by 90 right scale 0 font ",18"
 set ylabel 'Time (nanosec.)' font ",20"
 set ytics font ",18"
-set logscale y
-#set yrange [ 1 : 550 ]
-set autoscale y
+#set logscale y
+set yrange [ 1 : 30 ]
+#set autoscale y
 set style fill solid 1 noborder
 set style data histogram
 set style histogram clustered gap 1
